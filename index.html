@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RS Electrician Services</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9;}
+
+    /* Splash */
+    #splash {
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      background:#fff; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; z-index:9999;
+      transition:opacity 0.5s ease;
+    }
+    #splash.fade-out {opacity:0; visibility:hidden;}
+
+    @keyframes bounce {0%,20%,50%,80%,100%{transform:translateY(0);}40%{transform:translateY(-20px);}60%{transform:translateY(-10px);}}
+    @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+
+    #splash img {width:100px; height:100px; animation:bounce 1.5s infinite;}
+    #splash h1 {font-size:24px; margin-top:15px; animation:fadeIn 2s;}
+
+    header {background:#222; color:#fff; padding:15px; text-align:center;}
+    nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+    nav a:hover {text-decoration:underline;}
+
+    section {padding:30px;}
+    h2 {text-align:center; margin-bottom:20px; color:#222;}
+
+    /* Services */
+    .services {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;}
+    .service {background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .service h3 {margin-top:0;}
+    .service form {margin-top:10px;}
+    .service input, .service button {width:100%; padding:8px; margin-top:5px;}
+    .service button {background:#28a745; border:none; color:#fff; border-radius:5px; cursor:pointer;}
+    .service button:hover {background:#218838;}
+
+    /* Feedback */
+    .feedback-form {max-width:500px; margin:auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .stars {display:flex; flex-direction:row-reverse; justify-content:center;}
+    .stars input {display:none;}
+    .stars label {font-size:25px; color:#ccc; cursor:pointer;}
+    .stars input:checked ~ label, .stars label:hover, .stars label:hover ~ label {color:gold;}
+
+    /* Notification */
+    .notification {
+      position:fixed; top:20px; right:20px; background:#28a745;
+      color:#fff; padding:10px 20px; border-radius:5px;
+      display:none; z-index:10000;
+    }
+
+    /* Reviews */
+    .reviews {max-width:700px; margin:20px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .review {border-bottom:1px solid #ddd; padding:10px 0;}
+    .review:last-child {border-bottom:none;}
+    .review strong {color:#333;}
+
+    footer {background:#222; color:#fff; text-align:center; padding:15px;}
+  </style>
+</head>
+<body>
+
+  <!-- Splash -->
+  <div id="splash">
+    <img src="https://i.ibb.co/x8FB0Krg/file-00000000868861f6988cbd611b3b56d4-Photoroom.png" alt="RS Electrician Logo">
+    <h1>RS ELECTRICIAN</h1>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>RS Electrician Services</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service"><h3>Fan Installation</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Light Fitting</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Wiring Work</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Switchboard Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Meter Installation</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Geyser Installation</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>CCTV Installation</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Inverter Setup</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>AC Service</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Fridge Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Washing Machine Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Microwave Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Panel Board Setup</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Transformer Maintenance</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Industrial Motor Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Welding Machine Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Generator Service</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>UPS Repair</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Hidden Wiring</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+      <div class="service"><h3>Emergency Service</h3><form class="booking-form"><input type="text" name="name" placeholder="Your Name" required><input type="text" name="phone" placeholder="Phone" required><button type="submit">Book Now</button></form></div>
+    </div>
+  </section>
+
+  <!-- Feedback -->
+  <section id="feedback">
+    <h2>Customer Feedback</h2>
+    <div class="feedback-form">
+      <form id="feedbackForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="message" placeholder="Your Feedback" required></textarea>
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <h2>Customer Reviews</h2>
+    <button onclick="toggleReviews()">Show/Hide Reviews</button>
+    <div class="reviews" id="reviewsList" style="display:none;"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>&copy; 2025 RS Electrician. All Rights Reserved.</p>
+    <p>Contact: +91-9876543210 | Email: rselectrician9283@gmail.com</p>
+  </footer>
+
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
+
+  <script>
+    // EmailJS Init
+    (function(){
+      emailjs.init("AbPYwca1GMdNjZRsO");
+    })();
+
+    // Splash Hide
+    window.addEventListener("load", () => {
+      setTimeout(()=>{document.getElementById("splash").classList.add("fade-out");}, 1000);
+    });
+
+    // Notification
+    function showNotification(msg){
+      let n=document.getElementById("notification");
+      n.innerText=msg;
+      n.style.display="block";
+      setTimeout(()=>{n.style.display="none";},1000);
+    }
+
+    // Booking forms
+    document.querySelectorAll(".booking-form").forEach(form=>{
+      form.addEventListener("submit",function(e){
+        e.preventDefault();
+        let data={
+          name:form.querySelector('input[name="name"]').value,
+          phone:form.querySelector('input[name="phone"]').value,
+          service:form.parentElement.querySelector("h3").innerText
+        };
+        emailjs.send("service_9hwj82y","template_nr7fqlw",data)
+          .then(()=>{showNotification("Booking Successful!");form.reset();})
+          .catch(()=>{showNotification("Booking Failed!");});
+      });
+    });
+
+    // Feedback form
+    document.getElementById("feedbackForm").addEventListener("submit",function(e){
+      e.preventDefault();
+      let data={
+        name:this.name.value,
+        message:this.message.value,
+        rating:this.rating.value
+      };
+      emailjs.send("service_9hwj82y","template_nr7fqlw",data)
+        .then(()=>{showNotification("Feedback Submitted!");this.reset();})
+        .catch(()=>{showNotification("Feedback Failed!");});
+    });
+
+    // Fake reviews
+    const reviews=[
+      {name:"Amit Sharma",rating:5,text:"Very professional service, fan installation was smooth."},
+      {name:"Priya Verma",rating:4,text:"Good work, polite behaviour, satisfied."},
+      {name:"Rakesh Gupta",rating:5,text:"Quick and affordable, wiring done perfectly."},
+      {name:"Sunita Yadav",rating:5,text:"Best electrician service in town, highly recommend."},
+      {name:"Vivek Singh",rating:3,text:"Service was ok, could improve timing."},
+      {name:"Pooja Patel",rating:5,text:"Excellent work, geyser installation done fast."},
+      {name:"Arjun Mehta",rating:4,text:"Polite and knowledgeable staff, fixed my board easily."},
+      {name:"Neha Kapoor",rating:5,text:"Reliable service, came on time and solved issue quickly."},
+      {name:"Sandeep Kumar",rating:4,text:"Good work, price was fair."},
+      {name:"Manoj Jha",rating:5,text:"Best service experience ever, I will book again."},
+      {name:"Deepak Chauhan",rating:5,text:"Fan repair done within 20 minutes, super fast."},
+      {name:"Kiran Mishra",rating:4,text:"Affordable and trustworthy service."},
+      {name:"Rohit Tiwari",rating:5,text:"Hidden wiring completed perfectly."},
+      {name:"Seema Aggarwal",rating:5,text:"Electrician was polite and on time."},
+      {name:"Nikhil Raj",rating:3,text:"Good but took a little longer than expected."},
+      {name:"Alok Pandey",rating:5,text:"Meter installation was neat and clean."},
+      {name:"Ritu Saxena",rating:4,text:"Service was good, price reasonable."},
+      {name:"Harsh Vardhan",rating:5,text:"CCTV installation done perfectly, thanks."},
+      {name:"Shalini Nair",rating:5,text:"Very satisfied, electrician was skilled."},
+      {name:"Mohit Bansal",rating:4,text:"Good work, will recommend to others."},
+      {name:"Ankita Joshi",rating:5,text:"Light fitting was done perfectly."},
+      {name:"Saurabh Dubey",rating:5,text:"Quick service, reliable team."},
+      {name:"Meena Kumari",rating:4,text:"Satisfied with fan repair service."}
+    ];
+    function toggleReviews(){
+      let box=document.getElementById("reviewsList");
+      if(box.style.display==="none"){box.style.display="block";renderReviews();}
+      else{box.style.display="none";}
+    }
+    function renderReviews(){
+      let box=document.getElementById("reviewsList"); box.innerHTML="";
+      reviews.forEach(r=>{
+        box.innerHTML+=`<div class="review"><strong>${r.name}</strong> ⭐${r.rating}<br>${r.text}</div>`;
+      });
+    }
+  </script>
+</body>
+  </html>
